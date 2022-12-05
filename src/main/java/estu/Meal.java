@@ -3,16 +3,26 @@ package estu;
 import java.util.ArrayList;
 
 public class Meal extends Ingredient {
-    private String Meal;
+    private String mealName;
 
-    Meal(String meal, ArrayList<String> ingredients) {
+    Meal(String mealName, ArrayList<String> ingredients) {
         super(ingredients);
-        this.Meal = meal;
+        this.mealName = mealName;
 
     }
+    
 
-    public ArrayList<String> getIngredients() {
-        return super.getIngrediantList();
+    @Override
+    public String toString() {
+        return "Meal{" +
+                "mealName= " + mealName +
+                ", ingredients=" + super.getIngrediantList() +
+                '}';
+    }
+
+
+    public String getMealName() {
+        return mealName;
     }
 
 }
