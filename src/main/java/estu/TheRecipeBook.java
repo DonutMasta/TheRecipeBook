@@ -75,18 +75,18 @@ public class TheRecipeBook {
 
     public static void Option4() {
         ArrayList<Meal> tempMealList;
-        String userMealName = "Kavurma";
+        String userMealName = "Kavurma";// test icin manti secildi
         System.out.println("Similar Meal Option selected, please enter a meal name\n");
         Meal meal = FindMeal(userMealName);
         tempMealList = SimilarIngredient(meal);
         while (tempMealList.isEmpty()) {
             System.out.println("The application couldn't find a similar meal based on your meal \n"
                     + "Please enter another meal name or return back to Option Screen\n");
-            meal = FindMeal(userMealName);//another meal name can be entered
+            meal = FindMeal(userMealName);// another meal name can be entered
             tempMealList = SimilarIngredient(meal);
         }
         System.out.println(tempMealList.toString());
-        
+
         Meal selectedMeal = tempMealList.get(0); // test icin ilk yemek secildi
         selectedMeal.toString();
 
@@ -95,9 +95,12 @@ public class TheRecipeBook {
     public static ArrayList<Meal> SimilarIngredient(Meal meal) {
         ArrayList<Meal> tempMealList = new ArrayList<>();
         Iterator<Meal> mealIt = mealList.iterator();
+        ArrayList<String> mealIngredients = meal.getIngredientList();
         while (mealIt.hasNext()) {
             Meal meal1 = mealIt.next();
-            if (meal1.getIngrediantList().contains(meal.getIngrediantList())) { // duzgun algoritma lazim
+            ArrayList<String> meal1Ingredients = meal1.getIngredientList();
+            meal1Ingredients.retainAll(mealIngredients);//ortak malzemeleri alir
+            if (meal1Ingredients.size() > 2) {
                 tempMealList.add(meal1);
             }
         }
@@ -110,7 +113,7 @@ public class TheRecipeBook {
         Iterator<Meal> mealIt = mealList.iterator();
         while (mealIt.hasNext()) {
             Meal meal = mealIt.next();
-            if (meal.getMealName().contains(userMealName)) { // duzgun algoritma lazim
+            if (meal.getMealName().equals(userMealName)) { 
                 return meal;
             }
         }
@@ -124,7 +127,7 @@ public class TheRecipeBook {
         Iterator<Meal> mealIt = mealList.iterator();
         while (mealIt.hasNext()) {
             Meal meal = mealIt.next();
-            if (meal.getIngrediantList().contains(ingredients)) { // duzgun algoritma lazim
+            if (meal.getIngredientList().equals(ingredients.getIngredientList())) { 
                 tempMealList.add(meal);
             }
         }

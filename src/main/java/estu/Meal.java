@@ -16,7 +16,7 @@ public class Meal extends Ingredient {
     public String toString() {
         return "Meal{" +
                 "mealName= " + mealName +
-                ", ingredients=" + super.getIngrediantList() +
+                ", ingredients=" + super.getIngredientList() +
                 '}';
     }
 
