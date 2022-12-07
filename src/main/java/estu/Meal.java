@@ -10,16 +10,12 @@ public class Meal extends Ingredient {
         this.mealName = mealName;
 
     }
-    
 
     @Override
     public String toString() {
-        return "Meal{" +
-                "mealName= " + mealName +
-                ", ingredients=" + super.getIngredientList() +
-                '}';
+        return "mealName= " + mealName +
+                ", ingredients=" + super.getIngredientList() + "\n";
     }
-
 
     public String getMealName() {
         return mealName;
