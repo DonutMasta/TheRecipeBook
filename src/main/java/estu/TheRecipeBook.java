@@ -1,7 +1,7 @@
 package estu;
 
 import java.util.ArrayList;
-
+import java.util.Arrays;
 import java.util.Iterator;
 
 public class TheRecipeBook {
@@ -10,7 +10,51 @@ public class TheRecipeBook {
 
     public static void main(String[] args) {
 
+        Meal pumpkinPie = new Meal("Pumpkin pie",
+                new ArrayList<String>(Arrays.asList("Flour", "Butter", "Sugar", "Water", "Pumpkin", "Egg", "Water")));
+        mealList.add(pumpkinPie);
+        Meal roastTurkey = new Meal("Roast Turkey", new ArrayList<String>(
+                Arrays.asList("Turkey", "Salt", "Black pepper", "Onion", "Garlic", "Butter")));
+        mealList.add(roastTurkey);
+        Meal birthdayCake = new Meal("Birthday Cake", new ArrayList<String>(
+                Arrays.asList("Flour", "Salt", "Egg", "Sugar", "Milk", "Butter", "Olive oil", "Baking powder")));
+        mealList.add(birthdayCake);
+        Meal pizza = new Meal("Pizza", new ArrayList<String>(
+                Arrays.asList("Flour", "Water", "Olive oil", "Salt", "Cheese", "Tomato", "Pepper", "Sausage")));
+        mealList.add(pizza);
+        Meal pumpkinCinnamonRoll = new Meal("Pumpkin Cinnamon Roll",
+                new ArrayList<String>(Arrays.asList("Milk", "Olive oil", " Sugar", "Flour",
+                        "Pumpkin", "Cinnamon", "Baking powder", "Butter", "Salt")));
+        mealList.add(pumpkinCinnamonRoll);
+        Meal pumpkinRisotto = new Meal("Pumpkin Risotto", new ArrayList<String>(
+                Arrays.asList("Chicken", "Onion", "Garlic", "Rice", "Salt", "Pumpkin", "Cheese", "Black pepper")));
+        mealList.add(pumpkinRisotto);
+        Meal kavurmaliYumurta = new Meal("Kavurmalı Yumurta ", new ArrayList<String>(
+                Arrays.asList("Meal", "Egg", "Olive oil", "Salt")));
+        mealList.add(kavurmaliYumurta);
+        Meal kavurma = new Meal("Kavurma", new ArrayList<String>(
+                Arrays.asList("Meat", "Olive oil", "Tomato", "Green Pepper", "Salt", "Onion", "Garlic")));
+        mealList.add(kavurma);
+        Meal manti = new Meal("Manti", new ArrayList<String>(
+                Arrays.asList("Flour", "Water", "Salt", "Egg", "Meat", "Onion", "Black pepper", "Butter", "Tomato")));
+        mealList.add(manti);
+        Meal zeytinyagliyapraksarmasi = new Meal("Zeytinyağlı Yaprak Sarması",
+                new ArrayList<String>(
+                        Arrays.asList("Olive oil", "Onion", "Rice", "Salt", "Sugar", "Water", "Vine Leaf")));
+        mealList.add(zeytinyagliyapraksarmasi);
+
+        Event birthday = new Event("Birthday");
+
         OptionScreen();
+    }
+
+    public static void CreateEvent(ArrayList<String> events) {
+        for (String event : events) {
+            Event newEvent = new Event(event);
+            // yemekler evente eklenecek
+            eventList.add(newEvent);
+        }
+
     }
 
     public static void OptionScreen() {
@@ -99,7 +143,7 @@ public class TheRecipeBook {
         while (mealIt.hasNext()) {
             Meal meal1 = mealIt.next();
             ArrayList<String> meal1Ingredients = meal1.getIngredientList();
-            meal1Ingredients.retainAll(mealIngredients);//ortak malzemeleri alir
+            meal1Ingredients.retainAll(mealIngredients);// ortak malzemeleri alir
             if (meal1Ingredients.size() > 2) {
                 tempMealList.add(meal1);
             }
@@ -113,7 +157,7 @@ public class TheRecipeBook {
         Iterator<Meal> mealIt = mealList.iterator();
         while (mealIt.hasNext()) {
             Meal meal = mealIt.next();
-            if (meal.getMealName().equals(userMealName)) { 
+            if (meal.getMealName().equals(userMealName)) {
                 return meal;
             }
         }
@@ -127,7 +171,7 @@ public class TheRecipeBook {
         Iterator<Meal> mealIt = mealList.iterator();
         while (mealIt.hasNext()) {
             Meal meal = mealIt.next();
-            if (meal.getIngredientList().equals(ingredients.getIngredientList())) { 
+            if (meal.getIngredientList().equals(ingredients.getIngredientList())) {
                 tempMealList.add(meal);
             }
         }
