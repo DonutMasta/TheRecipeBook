@@ -13,8 +13,8 @@ public class Meal extends Ingredient {
 
     @Override
     public String toString() {
-        return "mealName= " + mealName +
-                ", ingredients=" + super.getIngredientList() + "\n";
+        return "Meal name = " + mealName +
+                ", Ingredients = " + super.getIngredientList() + "\n";
     }
 
     public String getMealName() {
