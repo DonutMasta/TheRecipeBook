@@ -2,8 +2,6 @@ package estu;
 
 import java.util.ArrayList;
 
-import estu.TheRecipeBook;
-
 public class Event extends TheRecipeBook {
     private ArrayList<Meal> mealList = new ArrayList<>();
     private String eventName;
